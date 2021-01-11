@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Fórmulas de aproximación}
+
+Las aproximaciones de las derivadas de primer y segundo orden generalmente son resueltas mediante diferencias finitas, siendo estas las aproximaciones que se toman a las derivadas ya mencionadas por fórmulas como consecuencia de la fórmula de Taylor y de la interpolación por polinomios de Lagrange.\\
+	
+		Primero se hace una partición del dominio, partición que primero se aplica al intervalo $\left[a,b\right]$ \textit{del eje espacial}, de forma regular con tamaño de paso $h$ y luego al  intervalo $\left[0,T\right]$ del \textit{eje temporal}, de forma regular con tamaño de paso $k$.\\
+		
+		Con ello las aproximaciones por \textit{diferencias finitas} que vamos a usar para las derivadas parciales de la función $u=u(x,t)$ son:\\
+		
+		\textbf{Fórmula de dos puntos:}
+		\begin{center}
+			$$\frac{ \partial u({ x }_{ i },{ t }_{ j }) }{ \partial t } \approx \frac { u({ x }_{ i },{ t }_{ j+1 })-u({ x }_{ i },{ t }_{ j }) }{ k }$$ (\textit{Progresiva})\\
+			
+			$$\frac{ \partial u({ x }_{ i },{ t }_{ j }) }{ \partial t } \approx \frac { u({ x }_{ i },{ t }_{ j })-u({ x }_{ i },{ t }_{ j-1 }) }{ k }$$ (\textit{Regresiva})\\
+			
+			$$\frac{ \partial u({ x }_{ i },{ t }_{ j }) }{ \partial t } \approx \frac{1}{2}\frac { u({ x }_{ i },{ t }_{ j+1 })-u({ x }_{ i },{ t }_{ j-1 }) }{ k }$$ (\textit{Centrada})
+			
+		\end{center}
+	
+		\par \textbf{Fórmula de tres puntos - centradas:}
+		\begin{center}
+			$$\frac{ \partial^2 u({ x }_{ i },{ t }_{ j }) }{ \partial t^2 } \approx \frac { u({ x }_{ i },{ t }_{ j+1 })-2u({ x }_{ i },{ t }_{ j }) + u({ x }_{ i },{ t }_{ j-1 })}{ k^2 }$$
+			$$\frac{ \partial^2 u({ x }_{ i },{ t }_{ j }) }{ \partial x^2 } \approx \frac { u({ x }_{ i+1 },{ t }_{ j })-2u({ x }_{ i },{ t }_{ j }) + u({ x }_{ i-1 },{ t }_{ j })}{ h^2 }$$
+		\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Desigualdad de Gronwall }
+
+Sea $I$ un intervalo de la forma $[a,b]$ con $a<b$. Si $u$ es diferenciable en $I$ y satisface $u'(t)\leq \beta(t)u(t)$ entonces se cumple:
+
+$$ u(t)\leq u(a)exp\left(\int_{a}^{t}\beta(s)ds\right)$$
